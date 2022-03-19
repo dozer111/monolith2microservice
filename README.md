@@ -1,4 +1,4 @@
-Распил монолита на микросервисы по курсу https://www.udemy.com/course/laravel-microservices/learn/lecture/27653392#questions
+Распил монолита на микросервисы по курсу https://www.udemy.com/course/laravel-microservices
 
 
 
