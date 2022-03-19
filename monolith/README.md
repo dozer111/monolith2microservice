@@ -1,0 +1,1 @@
+mailhog: `~/go/bin/MailHog`
