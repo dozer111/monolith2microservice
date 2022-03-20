@@ -7,7 +7,7 @@ down:
 restart: down up
 
 bash:
-	@docker exec -it laravel-ambassador_backend_1 sh
+	@docker-compose exec backend sh
 
 
 
