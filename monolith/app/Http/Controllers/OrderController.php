@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Events\OrderCompletedEvent;
 use App\Http\Resources\OrderResource;
+use App\Jobs\OrderCompleted;
 use App\Models\Link;
 use App\Models\Order;
 use App\Models\OrderItem;
@@ -104,7 +105,11 @@ class OrderController extends Controller
         $order->complete = 1;
         $order->save();
 
-//        event(new OrderCompletedEvent($order));
+        $data = $order->toArray();
+        $data['ambassador_revenue'] = $order->ambassador_revenue;
+        $data['admin_revenue'] = $order->admin_revenue;
+
+        OrderCompleted::dispatch($data);
 
         return [
             'message' => 'success'
