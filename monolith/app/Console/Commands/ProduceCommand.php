@@ -18,6 +18,6 @@ class ProduceCommand extends Command
         $data['ambassador_revenue'] = $order->ambassador_revenue;
         $data['admin_revenue'] = $order->admin_revenue;
 
-        OrderCompleted::dispatch($data);
+        OrderCompleted::dispatch($data)->onQueue('email_topic');
     }
 }

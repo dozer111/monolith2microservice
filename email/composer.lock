@@ -370,12 +370,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dozer111/monolith2microservice_kafka.git",
-                "reference": "869cd28b3b4fee31b7b7e192efb539e29aa807f4"
+                "reference": "ee4a02029a54f650f0c19953d03d6712de0658f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dozer111/monolith2microservice_kafka/zipball/869cd28b3b4fee31b7b7e192efb539e29aa807f4",
-                "reference": "869cd28b3b4fee31b7b7e192efb539e29aa807f4",
+                "url": "https://api.github.com/repos/dozer111/monolith2microservice_kafka/zipball/ee4a02029a54f650f0c19953d03d6712de0658f7",
+                "reference": "ee4a02029a54f650f0c19953d03d6712de0658f7",
                 "shasum": ""
             },
             "default-branch": true,
@@ -395,7 +395,7 @@
                 "source": "https://github.com/dozer111/monolith2microservice_kafka/tree/main",
                 "issues": "https://github.com/dozer111/monolith2microservice_kafka/issues"
             },
-            "time": "2022-03-20T14:11:04+00:00"
+            "time": "2022-03-20T14:58:10+00:00"
         },
         {
             "name": "dragonmantank/cron-expression",

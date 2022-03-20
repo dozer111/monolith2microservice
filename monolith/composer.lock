@@ -427,12 +427,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dozer111/monolith2microservice_kafka.git",
-                "reference": "869cd28b3b4fee31b7b7e192efb539e29aa807f4"
+                "reference": "ee4a02029a54f650f0c19953d03d6712de0658f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dozer111/monolith2microservice_kafka/zipball/869cd28b3b4fee31b7b7e192efb539e29aa807f4",
-                "reference": "869cd28b3b4fee31b7b7e192efb539e29aa807f4",
+                "url": "https://api.github.com/repos/dozer111/monolith2microservice_kafka/zipball/ee4a02029a54f650f0c19953d03d6712de0658f7",
+                "reference": "ee4a02029a54f650f0c19953d03d6712de0658f7",
                 "shasum": ""
             },
             "default-branch": true,
@@ -452,7 +452,7 @@
                 "source": "https://github.com/dozer111/monolith2microservice_kafka/tree/main",
                 "issues": "https://github.com/dozer111/monolith2microservice_kafka/issues"
             },
-            "time": "2022-03-20T14:11:04+00:00"
+            "time": "2022-03-20T14:58:10+00:00"
         },
         {
             "name": "dragonmantank/cron-expression",
@@ -784,16 +784,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.4.1",
+            "version": "7.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "ee0a041b1760e6a53d2a39c8c34115adc2af2c79"
+                "reference": "ac1ec1cd9b5624694c3a40be801d94137afb12b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/ee0a041b1760e6a53d2a39c8c34115adc2af2c79",
-                "reference": "ee0a041b1760e6a53d2a39c8c34115adc2af2c79",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/ac1ec1cd9b5624694c3a40be801d94137afb12b4",
+                "reference": "ac1ec1cd9b5624694c3a40be801d94137afb12b4",
                 "shasum": ""
             },
             "require": {
@@ -888,7 +888,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/7.4.1"
+                "source": "https://github.com/guzzle/guzzle/tree/7.4.2"
             },
             "funding": [
                 {
@@ -904,7 +904,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-12-06T18:43:05+00:00"
+            "time": "2022-03-20T14:16:28+00:00"
         },
         {
             "name": "guzzlehttp/promises",
