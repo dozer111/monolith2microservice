@@ -7,26 +7,32 @@ use App\Http\Requests\UpdateInfoRequest;
 use App\Http\Requests\UpdatePasswordRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
+use App\Services\UsersService;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class AuthController extends Controller
 {
+    public UsersService $service;
+
+    public function __construct(UsersService $service)
+    {
+        $this->service = $service;
+    }
+
     public function register(RegisterRequest $request)
     {
-        $user = User::create(
-            $request->only('first_name', 'last_name', 'email')
-            + [
-                'password' => \Hash::make($request->input('password')),
-                'is_admin' => $request->path() === 'api/admin/register' ? 1 : 0
-            ]
-        );
+        $data = $request->only('first_name', 'last_name', 'email','password')
+            + ['is_admin' => $request->path() === 'api/admin/register' ? 1 : 0];
+
+        $user = $this->service->post('register',$data);
 
         return response($user, Response::HTTP_CREATED);
     }
 
     public function login(Request $request)
     {
+        die(__METHOD__);
         if (!\Auth::attempt($request->only('email', 'password'))) {
             return response([
                 'error' => 'invalid credentials'
@@ -55,6 +61,7 @@ class AuthController extends Controller
 
     public function user(Request $request)
     {
+        die(__METHOD__);
         $user = $request->user();
 
         return new UserResource($user);
@@ -62,6 +69,7 @@ class AuthController extends Controller
 
     public function logout()
     {
+        die(__METHOD__);
         $cookie = \Cookie::forget('jwt');
 
         return response([
@@ -71,6 +79,7 @@ class AuthController extends Controller
 
     public function updateInfo(UpdateInfoRequest $request)
     {
+        die(__METHOD__);
         $user = $request->user();
 
         $user->update($request->only('first_name', 'last_name', 'email'));
@@ -80,6 +89,7 @@ class AuthController extends Controller
 
     public function updatePassword(UpdatePasswordRequest $request)
     {
+        die(__METHOD__);
         $user = $request->user();
 
         $user->update([

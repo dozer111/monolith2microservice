@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'scope.admin' => ScopeAdminMiddleware::class,
         'scope.ambassador' => ScopeAmbassadorMiddleware::class,
+        'cors' => \App\Http\Middleware\Cors::class,
     ];
 }
