@@ -42,7 +42,7 @@ final class KafkaQueue extends Queue implements QueueContract
     {
         $consumer = $this->consumer;
         $consumer->subscribe(['default']);
-        $message = $consumer->consume(1000);
+        $message = $consumer->consume(5*1000);
 
         switch ($message->err){
             case RD_KAFKA_RESP_ERR_NO_ERROR:

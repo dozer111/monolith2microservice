@@ -8,6 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Mail\Message;
 
 class OrderCompleted implements ShouldQueue
 {
@@ -32,7 +33,35 @@ class OrderCompleted implements ShouldQueue
      */
     public function handle()
     {
-        var_dump("hello from email microservice");
-        var_dump($this->data);
+        var_dump('Get message');
+        $order = $this->data;
+        try{
+            $this->send1($order);
+            $this->send2($order);
+        } catch (\Throwable $e) {
+        	var_dump([
+                'class' => get_class($e),
+                'msg' => $e->getMessage(),
+                ]);
+        }
     }
+
+    private function send1($order)
+    {
+        var_dump('send message to admin');
+        \Mail::send('admin', ['order' => $order], function (Message $message) {
+            $message->subject('An Order has been completed');
+            $message->to('admin@admin.com');
+        });
+    }
+
+    private function send2($order)
+    {
+        var_dump('send message to ambassador');
+        \Mail::send('ambassador', ['order' => $order], function (Message $message) use ($order) {
+            $message->subject('An Order has been completed');
+            $message->to($order['ambassador_email']);
+        });
+    }
+
 }
