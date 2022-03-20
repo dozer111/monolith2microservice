@@ -9,6 +9,6 @@ final class UsersService extends ApiService
 
     protected function getEndpoint(): string
     {
-        return "http://172.17.0.1:8001/api";
+        return  env('USERS_MS'). '/api';
     }
 }
