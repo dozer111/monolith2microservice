@@ -17,7 +17,7 @@
         "laravel/sanctum": "^2.9",
         "laravel/tinker": "^2.5",
         "predis/predis": "^1.1",
-        "ext-stubs": "*"
+        "dozer111/monolith2microservice_kafka": "dev-main"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.9",
@@ -28,6 +28,12 @@
         "nunomaduro/collision": "^5.0",
         "phpunit/phpunit": "^9.3.3"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/dozer111/monolith2microservice_kafka.git"
+        }
+    ],
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",

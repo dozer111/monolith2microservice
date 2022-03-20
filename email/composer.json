@@ -11,7 +11,7 @@
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
-        "ext-stubs": "*"
+        "dozer111/monolith2microservice_kafka": "dev-main"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -21,6 +21,12 @@
         "nunomaduro/collision": "^5.10",
         "phpunit/phpunit": "^9.5.10"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/dozer111/monolith2microservice_kafka.git"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "App\\": "app/",
