@@ -18,6 +18,4 @@ show tables;
   * b@b.b
   * b
 
-
-
 подсказки: `php artisan ide-helper:generate`
