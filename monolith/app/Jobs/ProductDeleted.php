@@ -2,28 +2,26 @@
 
 namespace App\Jobs;
 
-use App\Models\Product;
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use SebastianBergmann\Environment\Console;
-use Symfony\Component\Console\Output\ConsoleOutput;
 
-class ProductCreated implements ShouldQueue
+class ProductDeleted implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public $data;
+    public $id;
 
-    public function __construct($data)
+    public function __construct($id)
     {
-        $this->data = $data;
+        $this->id = $id;
     }
 
     public function handle()
     {
-        Product::create($this->data);
+        //
     }
 }

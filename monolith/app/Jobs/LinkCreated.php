@@ -2,16 +2,13 @@
 
 namespace App\Jobs;
 
-use App\Models\Product;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use SebastianBergmann\Environment\Console;
-use Symfony\Component\Console\Output\ConsoleOutput;
 
-class ProductCreated implements ShouldQueue
+class LinkCreated implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -24,6 +21,6 @@ class ProductCreated implements ShouldQueue
 
     public function handle()
     {
-        Product::create($this->data);
+        //
     }
 }

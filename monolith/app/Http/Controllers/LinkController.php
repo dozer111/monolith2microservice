@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\LinkResource;
+use App\Jobs\LinkCreated;
 use App\Models\Link;
 use App\Models\LinkProduct;
 use dozer111\UsersMicroservice\UsersApi;
@@ -32,12 +33,18 @@ class LinkController extends Controller
             'code' => Str::random(6)
         ]);
 
+        $items = [];
         foreach ($request->input('products') as $product_id) {
-            LinkProduct::create([
+            $item = LinkProduct::create([
                 'link_id' => $link->id,
                 'product_id' => $product_id
             ]);
+            $items[] = $item->toArray();
         }
+
+        $data = $link->toArray();
+        $data['link_products'] = $items;
+        LinkCreated::dispatch($data)->onQueue('checkout_topic');
 
         return $link;
     }

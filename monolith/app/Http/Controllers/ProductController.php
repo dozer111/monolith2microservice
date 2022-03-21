@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Events\ProductUpdatedEvent;
+use App\Jobs\ProductChanged;
 use App\Jobs\ProductCreated;
+use App\Jobs\ProductDeleted;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -35,7 +37,7 @@ class ProductController extends Controller
     {
         $product->update($request->only('title', 'description', 'image', 'price'));
 
-        event(new ProductUpdatedEvent);
+        ProductChanged::dispatch($product->toArray())->onQueue('checkout_topic');
 
         return response($product, Response::HTTP_ACCEPTED);
     }
@@ -44,7 +46,7 @@ class ProductController extends Controller
     {
         $product->delete();
 
-        event(new ProductUpdatedEvent);
+        ProductDeleted::dispatch($product->id)->onQueue('checkout_topic');
 
         return response(null, Response::HTTP_NO_CONTENT);
     }
