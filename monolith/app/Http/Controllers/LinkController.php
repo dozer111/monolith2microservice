@@ -28,7 +28,7 @@ class LinkController extends Controller
     public function store(Request $request)
     {
         $link = Link::create([
-            'user_id' => $this->userService->get('user')['id'],
+            'user_id' => $this->service->get('user')['id'],
             'code' => Str::random(6)
         ]);
 
@@ -38,15 +38,6 @@ class LinkController extends Controller
                 'product_id' => $product_id
             ]);
         }
-
-        return $link;
-    }
-
-    public function show($code)
-    {
-        $link = Link::with('products')->where('code', $code)->first();
-        $user = $this->userService->get("users/{$link->user_id}");
-        $link['user'] = $user;
 
         return $link;
     }

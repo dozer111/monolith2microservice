@@ -9,6 +9,13 @@
 mysql -u ifix -h users_db -p
 use users;
 show tables;
+
+========================================================================================================================
+
+mysql -u ifix -h checkout_db -p
+use checkout;
+show tables;
+
 ```
 
 ---
