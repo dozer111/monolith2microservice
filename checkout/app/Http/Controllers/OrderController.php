@@ -15,16 +15,11 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-    private UsersApi $service;
+    public UsersApi $userService;
 
-    public function __construct(UsersApi $service)
+    public function __construct(UsersApi $userService)
     {
-        $this->service = $service;
-    }
-
-    public function index()
-    {
-        return OrderResource::collection(Order::with('orderItems')->get());
+        $this->userService = $userService;
     }
 
     public function store(Request $request)

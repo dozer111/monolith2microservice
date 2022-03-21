@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6c7fff0d7b75c7a1d9b4a4f5300a20ff",
+    "content-hash": "b473823a5e3017c51aabbbbf806fbd37",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -121,6 +121,63 @@
                 }
             ],
             "time": "2021-08-15T20:50:18+00:00"
+        },
+        {
+            "name": "cartalyst/stripe",
+            "version": "v2.4.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cartalyst/stripe.git",
+                "reference": "e75b4d714fec5f034d533e55f5365f0229b5686d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cartalyst/stripe/zipball/e75b4d714fec5f034d533e55f5365f0229b5686d",
+                "reference": "e75b4d714fec5f034d533e55f5365f0229b5686d",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~6.0|~7.0",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "component": "package",
+                "branch-alias": {
+                    "dev-master": "2.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Cartalyst\\Stripe\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Cartalyst LLC",
+                    "email": "help@cartalyst.com",
+                    "homepage": "https://cartalyst.com"
+                }
+            ],
+            "description": "A comprehensive Stripe API package.",
+            "keywords": [
+                "cartalyst",
+                "php",
+                "stripe"
+            ],
+            "support": {
+                "issues": "https://github.com/cartalyst/stripe/issues",
+                "source": "https://github.com/cartalyst/stripe/tree/v2.4.6"
+            },
+            "time": "2021-10-09T10:40:49+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -363,6 +420,72 @@
                 }
             ],
             "time": "2022-02-28T11:07:21+00:00"
+        },
+        {
+            "name": "dozer111/monolith2microservice_kafka",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dozer111/monolith2microservice_kafka.git",
+                "reference": "ee4a02029a54f650f0c19953d03d6712de0658f7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dozer111/monolith2microservice_kafka/zipball/ee4a02029a54f650f0c19953d03d6712de0658f7",
+                "reference": "ee4a02029a54f650f0c19953d03d6712de0658f7",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "dozer111\\Kafka\\": "src/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "dozer111",
+                    "email": "alkhonko@gmail.com"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/dozer111/monolith2microservice_kafka/tree/main",
+                "issues": "https://github.com/dozer111/monolith2microservice_kafka/issues"
+            },
+            "time": "2022-03-20T14:58:10+00:00"
+        },
+        {
+            "name": "dozer111/monolith2microservice_user_ms_api",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dozer111/monolith2microservice_user_ms_api.git",
+                "reference": "e02163f2de9d381a245b69b1463ffa572c07b46e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dozer111/monolith2microservice_user_ms_api/zipball/e02163f2de9d381a245b69b1463ffa572c07b46e",
+                "reference": "e02163f2de9d381a245b69b1463ffa572c07b46e",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "dozer111\\UsersMicroservice\\": "src/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "dozer111",
+                    "email": "alkhonko@gmail.com"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/dozer111/monolith2microservice_user_ms_api/tree/main",
+                "issues": "https://github.com/dozer111/monolith2microservice_user_ms_api/issues"
+            },
+            "time": "2022-03-21T14:32:53+00:00"
         },
         {
             "name": "dragonmantank/cron-expression",
@@ -8514,7 +8637,10 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "dozer111/monolith2microservice_kafka": 20,
+        "dozer111/monolith2microservice_user_ms_api": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

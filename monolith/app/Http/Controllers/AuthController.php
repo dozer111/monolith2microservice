@@ -5,15 +5,15 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\UpdateInfoRequest;
 use App\Http\Requests\UpdatePasswordRequest;
-use App\Services\UsersService;
+use dozer111\UsersMicroservice\UsersApi;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class AuthController extends Controller
 {
-    public UsersService $service;
+    private UsersApi $service;
 
-    public function __construct(UsersService $service)
+    public function __construct(UsersApi $service)
     {
         $this->service = $service;
     }

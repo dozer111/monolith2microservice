@@ -5,17 +5,17 @@ namespace App\Http\Controllers;
 use App\Http\Resources\LinkResource;
 use App\Models\Link;
 use App\Models\LinkProduct;
-use App\Services\UsersService;
+use dozer111\UsersMicroservice\UsersApi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class LinkController extends Controller
 {
-    public UsersService $userService;
+    private UsersApi $service;
 
-    public function __construct(UsersService $userService)
+    public function __construct(UsersApi $service)
     {
-        $this->userService = $userService;
+        $this->service = $service;
     }
 
     public function index($id)

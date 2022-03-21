@@ -2,15 +2,15 @@
 
 namespace App\Http\Middleware;
 
-use App\Services\UsersService;
 use Closure;
+use dozer111\UsersMicroservice\UsersApi;
 use Illuminate\Http\Request;
 
 class ScopeAmbassadorMiddleware
 {
-    private UsersService $service;
+    private UsersApi $service;
 
-    public function __construct(UsersService $service)
+    public function __construct(UsersApi $service)
     {
         $this->service = $service;
     }

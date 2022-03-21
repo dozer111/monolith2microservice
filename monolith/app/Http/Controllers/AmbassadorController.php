@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\UsersService;
+
+use dozer111\UsersMicroservice\UsersApi;
 
 class AmbassadorController extends Controller
 {
-    public UsersService $service;
+    private UsersApi $service;
 
-    public function __construct(UsersService $service)
+    public function __construct(UsersApi $service)
     {
         $this->service = $service;
     }

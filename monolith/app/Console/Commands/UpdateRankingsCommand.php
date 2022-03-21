@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\Order;
-use App\Services\UsersService;
+use dozer111\UsersMicroservice\UsersApi;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Redis;
 
@@ -11,9 +11,9 @@ class UpdateRankingsCommand extends Command
 {
     protected $signature = 'update:rankings';
 
-    private UsersService $userService;
+    private UsersApi $userService;
 
-    public function __construct(UsersService $userService)
+    public function __construct(UsersApi $userService)
     {
         parent::__construct();
         $this->userService = $userService;

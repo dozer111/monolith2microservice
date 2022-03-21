@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2a828790e06ed881807bf49b51f100a",
+    "content-hash": "81ecd35f937ceab29af0009b8c3723cd",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -453,6 +453,39 @@
                 "issues": "https://github.com/dozer111/monolith2microservice_kafka/issues"
             },
             "time": "2022-03-20T14:58:10+00:00"
+        },
+        {
+            "name": "dozer111/monolith2microservice_user_ms_api",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dozer111/monolith2microservice_user_ms_api.git",
+                "reference": "e02163f2de9d381a245b69b1463ffa572c07b46e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dozer111/monolith2microservice_user_ms_api/zipball/e02163f2de9d381a245b69b1463ffa572c07b46e",
+                "reference": "e02163f2de9d381a245b69b1463ffa572c07b46e",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "dozer111\\UsersMicroservice\\": "src/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "dozer111",
+                    "email": "alkhonko@gmail.com"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/dozer111/monolith2microservice_user_ms_api/tree/main",
+                "issues": "https://github.com/dozer111/monolith2microservice_user_ms_api/issues"
+            },
+            "time": "2022-03-21T14:32:53+00:00"
         },
         {
             "name": "dragonmantank/cron-expression",
@@ -992,16 +1025,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "2.2.0",
+            "version": "2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "6565c7e0db3231e92dd5ca3bed448b30fbc89eb1"
+                "reference": "c94a94f120803a18554c1805ef2e539f8285f9a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/6565c7e0db3231e92dd5ca3bed448b30fbc89eb1",
-                "reference": "6565c7e0db3231e92dd5ca3bed448b30fbc89eb1",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/c94a94f120803a18554c1805ef2e539f8285f9a2",
+                "reference": "c94a94f120803a18554c1805ef2e539f8285f9a2",
                 "shasum": ""
             },
             "require": {
@@ -1087,7 +1120,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
-                "source": "https://github.com/guzzle/psr7/tree/2.2.0"
+                "source": "https://github.com/guzzle/psr7/tree/2.2.1"
             },
             "funding": [
                 {
@@ -1103,7 +1136,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-03-20T13:51:08+00:00"
+            "time": "2022-03-20T21:55:58+00:00"
         },
         {
             "name": "laravel/framework",
@@ -8729,7 +8762,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "dozer111/monolith2microservice_kafka": 20
+        "dozer111/monolith2microservice_kafka": 20,
+        "dozer111/monolith2microservice_user_ms_api": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

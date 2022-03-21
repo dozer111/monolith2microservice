@@ -17,7 +17,8 @@
         "laravel/sanctum": "^2.9",
         "laravel/tinker": "^2.5",
         "predis/predis": "^1.1",
-        "dozer111/monolith2microservice_kafka": "dev-main"
+        "dozer111/monolith2microservice_kafka": "dev-main",
+        "dozer111/monolith2microservice_user_ms_api": "dev-main"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.12",
@@ -32,6 +33,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/dozer111/monolith2microservice_kafka.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/dozer111/monolith2microservice_user_ms_api"
         }
     ],
     "config": {

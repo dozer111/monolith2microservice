@@ -4,17 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Link;
 use App\Models\Order;
-use App\Services\UsersService;
+use dozer111\UsersMicroservice\UsersApi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 
 class StatsController extends Controller
 {
-    public UsersService $userService;
+    private UsersApi $service;
 
-    public function __construct(UsersService $userService)
+    public function __construct(UsersApi $service)
     {
-        $this->userService = $userService;
+        $this->service = $service;
     }
 
     public function index(Request $request)
