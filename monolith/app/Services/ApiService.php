@@ -8,17 +8,38 @@ abstract class ApiService
 {
     abstract protected function getEndpoint(): string;
 
-    public function post(string $path,$data){
-        return \Http::post("{$this->getEndpoint()}/{$path}",$data)->json();
+    protected function request(string $method, string $path, $data = [])
+    {
+        $response = \Http::acceptJson()
+            ->withHeaders([
+                'Authorization' => 'Bearer ' . request()->cookie('jwt')
+            ])
+            ->$method("{$this->getEndpoint()}/{$path}", $data);
+
+        if ($response->ok()) {
+            return $response->json();
+        }
+
+        throw new \Exception($response->body());
     }
 
     public function get(string $path)
     {
-        return \Http::acceptJson()
-            ->withHeaders([
-                'Authorization' => 'Bearer '.request()->cookie('jwt')
-            ])
-            ->get("{$this->getEndpoint()}/{$path}")
-            ->json();
+        return $this->request('get', $path);
+    }
+
+    public function post(string $path, $data)
+    {
+        return $this->request('post', $path, $data);
+    }
+
+    public function put(string $path, $data)
+    {
+        return $this->request('put', $path, $data);
+    }
+
+    public function delete(string $path)
+    {
+        return $this->request('delete', $path);
     }
 }
