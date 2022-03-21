@@ -11,4 +11,14 @@ abstract class ApiService
     public function post(string $path,$data){
         return \Http::post("{$this->getEndpoint()}/{$path}",$data)->json();
     }
+
+    public function get(string $path)
+    {
+        return \Http::acceptJson()
+            ->withHeaders([
+                'Authorization' => 'Bearer '.request()->cookie('jwt')
+            ])
+            ->get("{$this->getEndpoint()}/{$path}")
+            ->json();
+    }
 }

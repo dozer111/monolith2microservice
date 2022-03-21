@@ -32,27 +32,12 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        die(__METHOD__);
-        if (!\Auth::attempt($request->only('email', 'password'))) {
-            return response([
-                'error' => 'invalid credentials'
-            ], Response::HTTP_UNAUTHORIZED);
-        }
+        $scope = $request->path() === 'api/admin/login' ? 'admin' : 'ambassador';
 
-        $user = \Auth::user();
+        $data = $request->only('email','password') + compact('scope');
 
-        $adminLogin = $request->path() === 'api/admin/login';
-
-        if ($adminLogin && !$user->is_admin) {
-            return response([
-                'error' => 'Access Denied!'
-            ], Response::HTTP_UNAUTHORIZED);
-        }
-
-        $scope = $adminLogin ? 'admin' : 'ambassador';
-        $jwt = $user->createToken('token', [$scope])->plainTextToken;
-
-        $cookie = cookie('jwt', $jwt, 60 * 24); // 1 day
+        $response = $this->service->post('login',$data);
+        $cookie = cookie('jwt', $response['jwt'], 60 * 24); // 1 day
 
         return response([
             'message' => 'success'
@@ -61,15 +46,11 @@ class AuthController extends Controller
 
     public function user(Request $request)
     {
-        die(__METHOD__);
-        $user = $request->user();
-
-        return new UserResource($user);
+        return $this->service->get('user');
     }
 
     public function logout()
     {
-        die(__METHOD__);
         $cookie = \Cookie::forget('jwt');
 
         return response([
@@ -79,7 +60,6 @@ class AuthController extends Controller
 
     public function updateInfo(UpdateInfoRequest $request)
     {
-        die(__METHOD__);
         $user = $request->user();
 
         $user->update($request->only('first_name', 'last_name', 'email'));
@@ -89,7 +69,6 @@ class AuthController extends Controller
 
     public function updatePassword(UpdatePasswordRequest $request)
     {
-        die(__METHOD__);
         $user = $request->user();
 
         $user->update([
