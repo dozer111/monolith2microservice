@@ -7,7 +7,7 @@ down:
 restart: down up
 
 bash:
-	@docker-compose exec backend sh
+	@docker-compose exec ambassador_backend sh
 
 
 
