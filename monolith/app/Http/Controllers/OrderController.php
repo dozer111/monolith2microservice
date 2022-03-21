@@ -9,11 +9,19 @@ use App\Models\Link;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Product;
+use App\Services\UsersService;
 use Cartalyst\Stripe\Stripe;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
+    public UsersService $userService;
+
+    public function __construct(UsersService $userService)
+    {
+        $this->userService = $userService;
+    }
+
     public function index()
     {
         return OrderResource::collection(Order::with('orderItems')->get());
@@ -30,9 +38,10 @@ class OrderController extends Controller
 
             $order = new Order();
 
+            $user = $this->userService->get("users/{$link->user_id}");
             $order->code = $link->code;
-            $order->user_id = $link->user->id;
-            $order->ambassador_email = $link->user->email;
+            $order->user_id = $user['id'];
+            $order->ambassador_email = $user['email'];
             $order->first_name = $request->input('first_name');
             $order->last_name = $request->input('last_name');
             $order->email = $request->input('email');
