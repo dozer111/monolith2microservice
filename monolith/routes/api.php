@@ -47,18 +47,3 @@ Route::prefix('admin')->group(function () {
         Route::apiResource('products', ProductController::class);
     });
 });
-
-
-//Ambassador
-Route::prefix('ambassador')->group(function () {
-    common('scope.ambassador');
-
-    Route::get('products/frontend', [ProductController::class, 'frontend']);
-    Route::get('products/backend', [ProductController::class, 'backend']);
-
-    Route::middleware('scope.ambassador')->group(function () {
-        Route::post('links', [LinkController::class, 'store']);
-        Route::get('stats', [StatsController::class, 'index']);
-        Route::get('rankings', [StatsController::class, 'rankings']);
-    });
-});
