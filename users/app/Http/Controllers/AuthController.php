@@ -69,4 +69,13 @@ class AuthController extends Controller
 
         return response($user, Response::HTTP_ACCEPTED);
     }
+
+    public function scopeCan(Request $request,$scope)
+    {
+        if (!$request->user()->tokenCan($scope)) {
+            abort(401, 'unauthorized');
+        }
+
+        return 'ok';
+    }
 }

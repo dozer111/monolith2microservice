@@ -2,21 +2,24 @@
 
 namespace App\Http\Middleware;
 
+use App\Services\UsersService;
 use Closure;
 use Illuminate\Http\Request;
 
 class ScopeAmbassadorMiddleware
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \Closure $next
-     * @return mixed
-     */
+    private UsersService $service;
+
+    public function __construct(UsersService $service)
+    {
+        $this->service = $service;
+    }
+
     public function handle(Request $request, Closure $next)
     {
-        if (!$request->user()->tokenCan('ambassador')) {
+        $response = $this->service->makeRequest('get','scope/ambassador');
+
+        if (!$response->ok()) {
             abort(401, 'unauthorized');
         }
 

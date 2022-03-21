@@ -2,21 +2,24 @@
 
 namespace App\Http\Middleware;
 
+use App\Services\UsersService;
 use Closure;
 use Illuminate\Http\Request;
 
 class ScopeAdminMiddleware
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \Closure $next
-     * @return mixed
-     */
+    private UsersService $service;
+
+    public function __construct(UsersService $service)
+    {
+        $this->service = $service;
+    }
+
     public function handle(Request $request, Closure $next)
     {
-        if (!$request->user()->tokenCan('admin')) {
+        $response = $this->service->makeRequest('get','scope/admin');
+
+        if (!$response->ok()) {
             abort(401, 'unauthorized');
         }
 
