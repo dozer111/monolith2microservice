@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use Symfony\Component\HttpKernel\Exception\HttpException;
+
 abstract class ApiService
 {
     abstract protected function getEndpoint(): string;
@@ -20,7 +22,7 @@ abstract class ApiService
             return $response->json();
         }
 
-        throw new \Exception($response->body());
+        throw new HttpException($response->status(),$response->body());
     }
 
     public function get(string $path)

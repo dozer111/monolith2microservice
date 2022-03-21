@@ -52,6 +52,7 @@ class AuthController extends Controller
     public function logout()
     {
         $cookie = \Cookie::forget('jwt');
+        $this->service->post('logout',[]);
 
         return response([
             'message' => 'success'
@@ -60,20 +61,19 @@ class AuthController extends Controller
 
     public function updateInfo(UpdateInfoRequest $request)
     {
-        $user = $request->user();
-
-        $user->update($request->only('first_name', 'last_name', 'email'));
-
+        $user = $this->service->put(
+            'users/info',
+            $request->only('first_name', 'last_name', 'email')
+        );
         return response($user, Response::HTTP_ACCEPTED);
     }
 
     public function updatePassword(UpdatePasswordRequest $request)
     {
-        $user = $request->user();
-
-        $user->update([
-            'password' => \Hash::make($request->input('password'))
-        ]);
+        $user = $this->service->put(
+            'users/info',
+            $request->only('password')
+        );
 
         return response($user, Response::HTTP_ACCEPTED);
     }
