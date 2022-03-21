@@ -1,6 +1,6 @@
 первый запуск:
 ```
-php artisan config:clear
+php artisan optimize
 php artisan migrate
 php artisan ide-helper:generate
 ```
