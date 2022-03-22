@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\UpdateInfoRequest;
 use App\Http\Requests\UpdatePasswordRequest;
+use App\Models\Order;
 use dozer111\UsersMicroservice\UsersApi;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,7 +22,7 @@ class AuthController extends Controller
     public function register(RegisterRequest $request)
     {
         $data = $request->only('first_name', 'last_name', 'email','password')
-            + ['is_admin' => $request->path() === 'api/admin/register' ? 1 : 0];
+            + ['is_admin' => 0];
 
         $user = $this->service->post('register',$data);
 
@@ -30,7 +31,7 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        $scope = $request->path() === 'api/admin/login' ? 'admin' : 'ambassador';
+        $scope = 'ambassador';
 
         $data = $request->only('email','password') + compact('scope');
 
@@ -44,7 +45,13 @@ class AuthController extends Controller
 
     public function user(Request $request)
     {
-        return $this->service->get('user');
+        $user = $this->service->get('user');
+        $revenue = Order::where('user_id',$user['id'])
+            ->get()
+            ->sum(fn(Order $order) => $order->total);
+        $user['revenue'] = $revenue;
+
+        return $user;
     }
 
     public function logout()
