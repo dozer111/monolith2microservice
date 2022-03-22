@@ -7,3 +7,9 @@ php artisan ide-helper:generate
 
 ---
 
+```
+mysql -u ifix -h ambassador_db -p
+use ambassador;
+show tables;
+
+```

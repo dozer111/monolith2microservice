@@ -19,6 +19,8 @@ RUN git clone https://github.com/edenhill/librdkafka.git \
     && pecl install rdkafka \
     && docker-php-ext-enable rdkafka
 
+RUN apt-get update && apt-get -y install sox mariadb-client
+
 WORKDIR /app
 COPY . .
 RUN composer install

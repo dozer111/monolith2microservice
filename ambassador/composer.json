@@ -6,13 +6,14 @@
     "license": "MIT",
     "require": {
         "php": "^7.4",
+        "dozer111/monolith2microservice_kafka": "dev-main",
+        "dozer111/monolith2microservice_user_ms_api": "dev-main",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
-        "dozer111/monolith2microservice_kafka": "dev-main",
-        "dozer111/monolith2microservice_user_ms_api": "dev-main"
+        "predis/predis": "^1.1"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.12",
