@@ -1,0 +1,33 @@
+version: '3.9'
+services:
+  admin_backend:
+    build: .
+    ports:
+      - 8004:8000
+    volumes:
+      - .:/app
+    depends_on:
+      - admin_db
+    command: 'php artisan serve --host=0.0.0.0'
+    networks:
+      - admin
+      - users
+
+  admin_db:
+    image: mysql:8
+    environment:
+      MYSQL_DATABASE: admin
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: ifix
+      MYSQL_PASSWORD: ifix
+    volumes:
+      - ./storage/config.cnf:/etc/mysql/conf.d/config.cnf
+      - ./storage/dbdata:/var/lib/mysql
+    networks:
+      - admin
+
+networks:
+  users:
+    external:
+      name: users
+  admin:
