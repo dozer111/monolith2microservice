@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6997cd83aab0be214cdda554ed02d2b9",
+    "content-hash": "c1fc4e906f1ccfd9f9b4ce930250a0e5",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -363,6 +363,72 @@
                 }
             ],
             "time": "2022-02-28T11:07:21+00:00"
+        },
+        {
+            "name": "dozer111/monolith2microservice_kafka",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dozer111/monolith2microservice_kafka.git",
+                "reference": "2aab467bd39f5fe3ddc9cd5d27e1ed80557c956d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dozer111/monolith2microservice_kafka/zipball/2aab467bd39f5fe3ddc9cd5d27e1ed80557c956d",
+                "reference": "2aab467bd39f5fe3ddc9cd5d27e1ed80557c956d",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "dozer111\\Kafka\\": "src/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "dozer111",
+                    "email": "alkhonko@gmail.com"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/dozer111/monolith2microservice_kafka/tree/main",
+                "issues": "https://github.com/dozer111/monolith2microservice_kafka/issues"
+            },
+            "time": "2022-03-21T17:26:57+00:00"
+        },
+        {
+            "name": "dozer111/monolith2microservice_user_ms_api",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dozer111/monolith2microservice_user_ms_api.git",
+                "reference": "e02163f2de9d381a245b69b1463ffa572c07b46e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dozer111/monolith2microservice_user_ms_api/zipball/e02163f2de9d381a245b69b1463ffa572c07b46e",
+                "reference": "e02163f2de9d381a245b69b1463ffa572c07b46e",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "dozer111\\UsersMicroservice\\": "src/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "dozer111",
+                    "email": "alkhonko@gmail.com"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/dozer111/monolith2microservice_user_ms_api/tree/main",
+                "issues": "https://github.com/dozer111/monolith2microservice_user_ms_api/issues"
+            },
+            "time": "2022-03-21T14:32:53+00:00"
         },
         {
             "name": "dragonmantank/cron-expression",
@@ -8514,11 +8580,14 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "dozer111/monolith2microservice_kafka": 20,
+        "dozer111/monolith2microservice_user_ms_api": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.3|^8.0"
+        "php": "^7.4"
     },
     "platform-dev": [],
     "plugin-api-version": "2.2.0"
