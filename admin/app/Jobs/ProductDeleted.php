@@ -23,6 +23,6 @@ class ProductDeleted implements ShouldQueue
 
     public function handle()
     {
-        Product::destroy($this->id);
+
     }
 }

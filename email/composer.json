@@ -31,7 +31,9 @@
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "Database\\Seeders\\": "database/seeders/",
+            "dozer111\\UsersMicroservice\\": "vendor/dozer111/monolith2microservice_user_ms_api/src/",
+            "dozer111\\Kafka\\": "vendor/dozer111/monolith2microservice_kafka/src/"
         }
     },
     "autoload-dev": {

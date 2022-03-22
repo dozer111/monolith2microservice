@@ -24,6 +24,6 @@ class ProductCreated implements ShouldQueue
 
     public function handle()
     {
-        Product::create($this->data);
+
     }
 }

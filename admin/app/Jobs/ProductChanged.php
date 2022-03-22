@@ -23,7 +23,6 @@ class ProductChanged implements ShouldQueue
 
     public function handle()
     {
-        Product::find($this->data['id'])
-            ->update($this->data);
+
     }
 }

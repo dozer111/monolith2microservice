@@ -13,3 +13,4 @@ use ambassador;
 show tables;
 
 ```
+https://stackoverflow.com/a/45006865/9500254
