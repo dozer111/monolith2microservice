@@ -1,0 +1,6 @@
+version: '3.9'
+services:
+  email_queue:
+    build: .
+    image: dozer111/email:0.0.1
+    command: 'php artisan queue:work'
